@@ -13,7 +13,7 @@ after installing `choco`, just run your Terminal/PowerShell/CMD then run `choco 
 
 then run `protoc` you should see the result like this:
 
-```
+```text
 PS C:\Users\Miraddo> protoc
 Usage: C:\ProgramData\chocolatey\lib\protoc\tools\bin\protoc.exe [OPTION] PROTO_FILES
 Parse PROTO_FILES and generate output based on the options given:
@@ -43,3 +43,19 @@ Parse PROTO_FILES and generate output based on the options given:
   ...
   
 ```
+
+## How to use protoc 
+
+while you try to convert the protofiles to go file you should always add `option go_package = "path";` after syntax inside protofiles
+
+The `go_package` option defines the import path of the package which will contain all the generated code for this file. The Go package name will be the last path component of the import path. [more details](https://developers.google.com/protocol-buffers/docs/gotutorial#defining-your-protocol-format)
+
+then follow the steps
+
+- go to inside the project folder for me in this case it go-example folder `cd go-example`
+- then run the code below here
+```text
+    protoc --go_out=. .\protofiles\Person.proto
+```
+- `--go_out=` is the path that output of golang will be created there. in the "." means current directory
+- `.\protofiles\Person.proto` is the file that we want to generate code with protoc 

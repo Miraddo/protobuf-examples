@@ -1,0 +1,9 @@
+syntax = "proto3";
+// use option go_package while convert proto3 to go file
+option go_package = ".";
+
+
+message Person{
+  string  name = 1;
+  int32   age  = 2;
+}
