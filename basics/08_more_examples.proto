@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+// example with enum
+message DayOfWeek{
+  enum Day{
+    Undefined = 0;
+    Saturday  = 1;
+    Sunday    = 2;
+    Monday    = 3;
+    Tuesday   = 4;
+    Wednesday = 5;
+    Thursday  = 6;
+    Friday    = 7;
+  }
+
+  Day day = 1;
+}
+
+// example with int
+message Date{
+  int32 year = 1;
+  int32 month = 2;
+  int32 days = 3;
+}
+
+// example with string|int|repeated
+message Profile{
+  string  name    = 1;
+  string  family  = 2;
+  int32   age     = 3;
+  repeated string numbers = 4;
+}

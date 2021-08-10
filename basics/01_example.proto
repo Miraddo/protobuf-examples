@@ -1,0 +1,16 @@
+syntax = "proto3"; // set version of the proto we use proto3 but we also can add proto2
+
+// messages are for define fields that we want used in this part of message
+// Field Type: inside the message we first declare type of the key
+// Field Name: then we declare the name of the key
+// Field Tag : so after all of them we had tags it must be positive number smallest :1 and largest 2^29 - 1 or 536870911
+// tip: we can not use 19000 through 19999
+// tags numbers from 1 to 15 use 1 byte in space
+// tags numbers from 16 to 2047 use 2 bytes
+
+message MyMessage{
+  // Field Type | Field Name = Field Tag
+  int32   id            = 1;
+  string  fName         = 2;
+  bool    isValidated   = 3;
+}

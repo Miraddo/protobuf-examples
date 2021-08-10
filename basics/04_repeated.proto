@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+// to make a list/array we can use repeated field
+// repeated starts from 0
+
+message Person{
+  int32   age             = 1;
+  string  firstName       = 2;
+  string  lastName        = 3;
+  bytes   profilePic    = 4;
+  bool    profileVerified = 5;
+  float   height          = 6;
+  // ====== Repeated =========
+  // repeated then we can write the other part of fields
+  repeated string phoneNumbers = 7;
+  // repeated bool validates = 8;
+
+}

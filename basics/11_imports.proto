@@ -1,0 +1,20 @@
+syntax = "proto3";
+// with import we can use other proto files inside the specific file that we want to have
+
+import "basics/08_more_examples.proto";
+
+message Person{
+
+  enum Explore {
+    UNIVERSAL = 0; // first value of the enum is the default value
+    WEB = 1;
+    IMAGES = 2;
+    LOCAL = 3;
+    NEWS = 4;
+    PRODUCTS = 5;
+    VIDEO = 6;
+  }
+
+  Explore exp = 1;
+  Date dt = 2;
+}

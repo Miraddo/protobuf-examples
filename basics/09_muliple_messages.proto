@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+// Profile message
+message Profile{
+  string  name    = 1;
+  string  family  = 2;
+  int32   age     = 3;
+  repeated string numbers = 4;
+  // we can add another message as a type into specific message that we want to have
+  Date birthday = 5;
+}
+
+// Date message
+message Date{
+  int32 year = 1;
+  int32 month = 2;
+  int32 days = 3;
+}

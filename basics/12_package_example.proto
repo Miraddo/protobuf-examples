@@ -1,0 +1,10 @@
+syntax = "proto3";
+// with import we can use other proto files inside the specific file that we want to have
+
+package main.date;
+
+message Date{
+  int32 year = 1;
+  int32 month = 2;
+  int32 days = 3;
+}

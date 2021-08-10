@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+// an simple example of Person info
+message Person{
+  int32   age             = 1;
+  string  firstName       = 2;
+  string  lastName        = 3;
+  bytes   profilePic    = 4;
+  bool    profileVerified = 5;
+  float   height          = 6;
+}

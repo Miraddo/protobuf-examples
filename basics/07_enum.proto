@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message Person{
+
+  enum Explore {
+    UNIVERSAL = 0; // first value of the enum is the default value
+    WEB = 1;
+    IMAGES = 2;
+    LOCAL = 3;
+    NEWS = 4;
+    PRODUCTS = 5;
+    VIDEO = 6;
+  }
+
+  Explore exp = 1;
+
+}

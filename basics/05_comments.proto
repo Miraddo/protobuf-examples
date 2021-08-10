@@ -1,0 +1,23 @@
+// the version is proto3 for this specific file
+syntax = "proto3";
+
+// This is comment
+
+/*
+  this is work for
+  multi lines
+  that we want have here
+*/
+
+// we all know comments are important :)
+// so use it any where that you think you need it
+
+message Person{
+  // the age is important to make some policy
+  // to show content
+  int32   age             = 1;
+  // use first name to save correct information into database
+  string  firstName       = 2;
+  string  lastName        = 3;  // last name
+  bytes   profilePic    = 4;  // comments....
+}

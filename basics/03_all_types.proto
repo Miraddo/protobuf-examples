@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message MyMessage{
+  //type  name = value; // type in golang
+  double    db    = 1;  //  float64
+  float     ft    = 2;  //  float32
+  int32     i32   = 3;  //  int32
+  int64     i64   = 4;  //  int64
+  uint32    ui32  = 5;  //  uint23
+  uint64    ui64  = 6;  //  uint64
+  sint32    si32  = 7;  //  int32
+  sint64    si64  = 8;  //  int64
+  fixed32   fx32  = 9;  //  uint23
+  fixed64   fx64  = 10; //  uint64
+  sfixed32  sfx32 = 11; //  int32
+  sfixed64  sfx64 = 12; //  int64
+  bool      bl    = 13; //  bool
+  string    str   = 14; //  string always contain UTF8 encoded or 7-bit ASCII
+  bytes     bt    = 15; //  []byte
+}
