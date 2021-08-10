@@ -59,3 +59,14 @@ then follow the steps
 ```
 - `--go_out=` is the path that output of golang will be created there. in the "." means current directory
 - `.\protofiles\Person.proto` is the file that we want to generate code with protoc 
+
+
+Tip: if you got any error it might be you don't install protobuf package for your project
+
+so install those packages
+```text
+    go get -u google.golang.org/grpc
+    go get -u github.com/golang/protobuf/proto
+    go get -u github.com/golang/protobuf/protoc-gen-go
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+```
