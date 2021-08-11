@@ -69,3 +69,74 @@ so install those packages
     go get -u github.com/golang/protobuf/protoc-gen-go
     go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
+
+## learn more
+some tips that I taught might be important.
+
+- protocol buffers have full compatibility [read](https://developers.google.com/protocol-buffers/docs/gotutorial#extending-a-protocol-buffer)
+    - Rules (There are [some exceptions](https://developers.google.com/protocol-buffers/docs/proto3#updating) to these rules, but they are rarely used.)
+        - you must not change the tag numbers of any existing fields.
+        - you may delete fields.
+        - you may add new fields, but you must use fresh tag numbers (i.e., tag numbers that were never used in this protocol buffer, not even by deleted fields).
+
+
+### remove a field
+while removing a field, you should use `reserved` for both name and the tag
+
+while using reserved, you should know how to use it:
+first, you should know we will using reserved to prevent our system crash or get bugs while removing fields
+
+- you can not use the field name and the tag together
+- you can use field names together like `reserved "name", "foo", "others...";`
+- you can use tags together like `reserved 2,5,8,10 to 15` tip: "10 to 15" is the range of 10,11,12,13,14,15
+- don't remove reversed tag **never** :)
+
+
+```protobuf
+message example{
+  int32 num = 1;
+  string name =2; // now I want to delete this field
+}
+
+// try to remove name field here 
+message example{
+  // always use reserve
+  reserved 2;
+  reserved "name";
+  // then the other part of you message
+  int32 num = 1;
+}
+```
+
+use `reserved` is import to prevent conflicts in the codebase
+
+there is another option we can rename the field name
+
+```protobuf
+// try to remove name field here 
+message example{
+  int32 num = 1;
+  string not_will_be_used_name = 2;
+}
+```
+anyway, it would be best if you used `reserved` while removing :)
+
+### Enums
+We can use enums for adding or removing as well.
+
+Tip: just use `reserved` while removing :)
+```protobuf
+message example{
+  enum Ext{
+    Default = 0;
+    Ext1 = 1;
+    Ext2 = 3;
+  }
+  Ext example = 1;
+}
+```
+
+### Defaults
+
+We should care about default values. They are important.
+We should know the default values don't make code get broken. In other words, defaults shouldn't have meaning at all in our code.
