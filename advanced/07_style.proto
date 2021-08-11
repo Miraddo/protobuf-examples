@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+// you know style are important there is some suggestions | https://developers.google.com/protocol-buffers/docs/style
+// Names Style
+// 1 | CamelCase for message name
+// 2 | snake_case for message field name
+// 3 | use lowercase for package name
+// 4 | enums can have uppercase name with Underscore like FOO_BAR_NAME
+// 5 | declare services should be CamelCase too
+
+
+// while using package the name should be lowercase
+// doc | Package name should be in lowercase, and should correspond to the directory hierarchy
+package my.package;
+
+// while declare message name the name should be CamelCase and the filed could be snake_case
+message ServerRequest{ //  ServerRequest is CamelCase
+  optional string request_field = 1; // request_field is snake_case
+}
+
+
+// Repeated Part
+// while using repeated use pluralized names
+message Example{
+  repeated string keys = 1;
+  repeated MyMessage accounts = 17;
+}
+
+message MyMessage{
+  string subject = 1;
+}
+
+// Enums Part
+// Use CamelCase (with an initial capital) for enum type names and CAPITALS_WITH_UNDERSCORES for value names
+message ExampleEnums{
+  enum FooBar {
+    FOO_BAR_UNSPECIFIED = 0;
+    FOO_BAR_FIRST = 1;
+    FOO_BAR_SECOND = 2;
+  }
+}
+
+
+// Services Part
+// just use CamelCase
+service SearchService {
+  rpc Search(ServerRequest) returns (MyMessage);
+}

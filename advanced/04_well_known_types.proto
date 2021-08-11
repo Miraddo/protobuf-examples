@@ -1,0 +1,24 @@
+syntax="proto3";
+
+// there are a lot well known type that exist
+// reference : https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types
+
+// for example here we use timestamp
+// A Timestamp represents a point in time independent of any time zone or calendar, represented as seconds and fractions of seconds at nanosecond resolution in UTC Epoch time.
+// to use timestamp you should import timestamp
+import "timestamp.proto";
+// another example can be Duration
+// A Duration represents a signed, fixed-length span of time represented as a count of seconds and fractions of seconds at nanosecond resolution.
+import "duration.proto";
+
+message example{
+  // then use timestamp type like this :
+  google.protobuf.Timestamp ts_field = 1;
+
+  // duration is like timestamp
+  google.protobuf.Duration dn_field = 2;
+}
+
+
+
+

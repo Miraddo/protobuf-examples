@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+// maps can used to map scalar except floats and byte
+
+message example{
+  string name = 1;
+  // declare map
+  map <string, Result> result = 2;
+
+  // map can not repeated as well
+}

@@ -1,0 +1,7 @@
+syntax="proto3";
+
+// options change behavior of the protoc compiler while generate code for a specific languages
+// like using go_package while generate code for golang
+option go_package = ".";
+
+// doc | https://developers.google.com/protocol-buffers/docs/proto3#options

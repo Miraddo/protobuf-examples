@@ -1,0 +1,27 @@
+syntax = "proto3";
+// learn how to encoding works in protocol buffer
+// https://developers.google.com/protocol-buffers/docs/encoding
+
+// so let's first learn what is Serialization and Deserialization
+// Serialization mean transforming an object into bytes
+// Deserialization mean take bytes and get the object
+
+// now look at this code
+
+message Example{
+  string name = 1;
+}
+
+// with Example message after generate code to golang or any language you want
+// we can pass the value of string to the name
+// and the output of the Example it will be byte streams
+// for more detail you can look at the main.go file
+// I used proto.Marshal() and it will return byte streams
+
+
+// So to return byte streams to main data we can use proto.Unmarshal()
+// it take bytes and set it to our struct of Example or whatever that we had
+
+// key it in your mind then go to read the reference it explain everything in details :)
+// https://developers.google.com/protocol-buffers/docs/encoding
+

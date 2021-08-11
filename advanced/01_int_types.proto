@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// as we saw in basics folder all types part there was a lot ints type
+// here just I want to mention why there is a lot types in int for protocol buffer
+// you can see in the message below here we had 10 different int types but us you see it will be convert to just 4 types in golang int32, int64 and uint32, uint64
+// us you know 32 is smaller than 64
+// when you can use uint or int ? :) look at this link https://tour.golang.org/basics/11
+// "The int, uint, and uintptr types are usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems. When you need an integer value you should use int unless you have a specific reason to use a sized or unsigned integer type."
+//
+// 32 range
+// int32 | -2147483648 to 2147483647
+// uinit32 | 0 to 4294967295
+//
+// 64 range
+// int64 | -9223372036854775808 to 9223372036854775807
+// uint64 | 0 to 18446744073709551615
+
+message MyMessage{
+  //type  name = value; // type in golang
+  int32     i32   = 3;  //  int32
+  int64     i64   = 4;  //  int64
+  uint32    ui32  = 5;  //  uint23
+  uint64    ui64  = 6;  //  uint64
+  sint32    si32  = 7;  //  int32
+  sint64    si64  = 8;  //  int64
+  fixed32   fx32  = 9;  //  uint23
+  fixed64   fx64  = 10; //  uint64
+  sfixed32  sfx32 = 11; //  int32
+  sfixed64  sfx64 = 12; //  int64
+}

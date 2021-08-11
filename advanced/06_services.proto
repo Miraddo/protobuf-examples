@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+// reference | https://developers.google.com/protocol-buffers/docs/proto3#services
+// If you want to use your message types with an RPC (Remote Procedure Call) system,
+// you can define an RPC service interface in a .proto file and
+// the protocol buffer compiler will generate service interface code and stubs in your chosen language.
+// So, for example, if you want to define an RPC service with a method that takes your SearchRequest and returns a SearchResponse,
+// you can define it in your .proto file as follows:
+
+
+// search request with userid
+message SearchRequest{
+  int32 user_id = 1;
+}
+
+// search response and give the result as userid with username
+message SearchResponse{
+  int32 user_id = 1;
+  string user_name = 2;
+}
+
+// create RPC service
+service SearchService {
+  rpc Search(SearchRequest) returns (SearchResponse);
+}

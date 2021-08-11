@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+// `oneof` is tell to protocol buffer that between some field just one of them can have value
+// https://developers.google.com/protocol-buffers/docs/proto#using_oneof
+
+message example{
+  int32 id = 1;
+
+  // so here diff_field just allow to str or bl had value not both of them
+  // while using oneof you should know on read, all fields will be null except the field that has value
+
+  oneof diff_field{
+    string str = 2;
+    bool bl =3;
+  }
+
+  // You can add fields of any type, but cannot use the required, optional, or repeated keywords.
+  // If you need to add a repeated field to a oneof, you can use a message containing the repeated field.
+
+  oneof diff_field2{
+    string str2 = 4;
+    RepeatedExample bl2 = 5;
+  }
+
+  message RepeatedExample{
+    repeated bool bool2 = 1;
+  }
+
+}
