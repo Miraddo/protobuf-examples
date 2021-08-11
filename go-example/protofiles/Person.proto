@@ -1,9 +1,27 @@
 syntax = "proto3";
 // use option go_package while convert proto3 to go file
 option go_package = ".";
-
+package profile.Person;
 
 message Person{
   string  name = 1;
   int32   age  = 2;
+  enum Color{
+    None = 0;
+    Black = 1;
+    Brown = 2;
+  }
+  Color eye = 3;
+  Validate allow = 4;
+
+  message Address{
+    string address = 1;
+    string city = 2;
+  }
+
+  repeated Address address = 5;
+}
+
+message Validate{
+  bool valid = 1;
 }
