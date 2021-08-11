@@ -65,7 +65,6 @@ Tip: if you got any error it might be you don't install protobuf package for you
 
 so install those packages
 ```text
-    go get -u google.golang.org/grpc
     go get -u github.com/golang/protobuf/proto
     go get -u github.com/golang/protobuf/protoc-gen-go
     go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
