@@ -1,7 +1,7 @@
 # Protocol Buffers Examples with Go
 In this repo, you can find some essential parts of the code that wrote with proto3.
 
-I tried to explain each not part as simply as I could as a comment inside the files.
+I tried to explain each part as simply as I could as a comment inside the files.
 
 ## Installation Protoc
 `Protoc` is the tool that let us compile the `.proto` files to the main code that we want to use
